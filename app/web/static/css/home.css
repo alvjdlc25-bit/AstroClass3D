@@ -1,0 +1,172 @@
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background:  #05070f;
+            color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #818cf8, #34d399);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .btn-mapa {
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-mapa:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        @media (min-width: 768px) {
+            .dashboard {
+                grid-template-columns: 350px 1fr;
+            }
+        }
+
+        .panel {
+            background: #0f172a;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .selector-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            height: fit-content;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            background: #020617;
+            color: white;
+            border: 2px solid #334155;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        select:focus {
+            border-color: #38bdf8;
+            outline: none;
+        }
+
+        .preview-img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin: 20px auto 0 auto;
+            display: none;
+            filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.2));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        
+        .info-card {
+            display: none; /* Se activa al elegir planeta */
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .planeta-titulo {
+            font-size: 2rem;
+            color: #38bdf8;
+            margin: 0;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+
+        .dato-destacado {
+            background: rgba(56, 189, 248, 0.1);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .grid-datos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .sub-tarjeta {
+            background: #1e293b;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .sub-tarjeta .titulo-metrica {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .sub-tarjeta .valor-num {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .sub-tarjeta .comparativa {
+            font-size: 0.85rem;
+            color: #34d399;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .error {
+            color: #f87171;
+            background: rgba(248, 113, 113, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(248, 113, 113, 0.2);
+            display: none;
+            margin-top: 15px;
+            text-align: center;
+        }

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Solar</title>
+
+    <style>
+        body {
+            background: #0b0f1a;
+            color: white;
+            font-family: Arial;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .planetas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #1a2238;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.05);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .lunas {
+            margin-top: 10px;
+            padding-left: 15px;
+        }
+
+        .luna {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #3b82f6;
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🌌 Sistema Solar</h1>
+
+<div class="planetas">
+
+    {% for planeta in planetas %}
+    <div class="card">
+
+        <h2>{{ planeta.nombre }}</h2>
+
+        {% if planeta.imagen %}
+            <img src="{{ planeta.imagen }}" alt="{{ planeta.nombre }}">
+        {% endif %}
+
+        <p>{{ planeta.descripcion }}</p>
+
+        <span class="badge">
+            🌙 Lunas: {{ planeta.lunas.count }}
+        </span>
+
+        <ul class="lunas">
+            {% for luna in planeta.lunas.all %}
+                <li class="luna">🪐 {{ luna.nombre }}</li>
+            {% empty %}
+                <li class="luna">Sin lunas</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

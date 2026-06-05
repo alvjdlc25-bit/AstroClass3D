@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Solar Interactivo 3D</title>
+    
+    <!-- Enlace al archivo CSS en static -->
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    
+    <!-- El importmap debe quedarse en el HTML para que el navegador resuelva las rutas de Three.js -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Pantalla de Selección de Modo -->
+    <div id="pantalla-modos">
+        <div class="contenedor-modos">
+            <h2>Centro de Mando Espacial</h2>
+            <p>Selecciona cómo deseas interactuar con el Sistema Solar 3D:</p>
+            <button class="btn-modo btn-explorar" onclick="cambiarModo('explorar')">🔭 Modo Observación e Info</button>
+            <button class="btn-modo btn-trivia" onclick="cambiarModo('trivia')">🎮 Modo Trivial Espacial</button>
+        </div>
+    </div>
+
+    <!-- Botón de Salida -->
+    <a href="{% url 'hola' %}" id="btn-volver">🏠 Salir al menú</a>
+
+    <!-- Texto de Ayuda -->
+    <div id="ayuda-explorar">Modo Observación activado • Haz clic en cualquier astro para escanear sus datos</div>
+    
+    <!-- Panel de Información -->
+    <div id="panel-informacion">
+        <h3 id="info-nombre">Planeta</h3>
+        <p><strong>Gravedad:</strong> <span id="info-gravedad">-</span></p>
+        <p><strong>Densidad:</strong> <span id="info-densidad">-</span></p>
+        <p><strong>Masa:</strong> <span id="info-masa">-</span></p>
+        <p><strong>Lunas:</strong> <span id="info-lunas">-</span></p>
+        <button onclick="document.getElementById('panel-informacion').style.display='none'" style="
+            background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.5); 
+            padding: 8px 10px; border-radius: 6px; cursor: pointer; width: 100%; margin-top: 15px; font-weight: bold; transition: 0.2s;
+        " onmouseover="this.style.background='rgba(239, 68, 68, 0.4)'" onmouseout="this.style.background='rgba(239, 68, 68, 0.2)'">Cerrar Escáner</button>
+    </div>
+
+    <!-- Contenedor del Trivial -->
+    <div id="contenedor-trivia">
+        <div id="puntuacion">PUNTOS: <span id="puntos-actuales" style="color: #4ade80;">0</span> &nbsp;|&nbsp; RACHA: <span id="racha-actual" style="color: #facc15;">0</span></div>
+        <div id="pregunta">Cargando datos de la misión...</div>
+        <div id="feedback"></div>
+    </div>
+
+    <!-- Enlace al archivo JavaScript principal como módulo -->
+    <script type="module" src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

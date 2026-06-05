@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "nombre": "Luna",
+    "planeta_id": 3,
+    "diametro_km": 3475,
+    "anio_descubrimiento": null,
+    "descripcion": "Único satélite natural de la Tierra.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Luna"
+  },
+  {
+    "id": 2,
+    "nombre": "Fobos",
+    "planeta_id": 4,
+    "diametro_km": 22.5,
+    "anio_descubrimiento": 1877,
+    "descripcion": "La mayor luna de Marte.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Phobos_colour_2008.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Fobos_(satélite)"
+  },
+  {
+    "id": 3,
+    "nombre": "Deimos",
+    "planeta_id": 4,
+    "diametro_km": 12.4,
+    "anio_descubrimiento": 1877,
+    "descripcion": "La luna más pequeña de Marte.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Deimos-MRO.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Deimos_(satélite)"
+  },
+  {
+    "id": 4,
+    "nombre": "Io",
+    "planeta_id": 5,
+    "diametro_km": 3643,
+    "anio_descubrimiento": 1610,
+    "descripcion": "La luna más volcánicamente activa del Sistema Solar.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Io_highest_resolution_true_color.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Io_(satélite)"
+  },
+  {
+    "id": 5,
+    "nombre": "Europa",
+    "planeta_id": 5,
+    "diametro_km": 3122,
+    "anio_descubrimiento": 1610,
+    "descripcion": "Posee un océano bajo una corteza de hielo.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/5/54/Europa-moon.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Europa_(satélite)"
+  },
+  {
+    "id": 6,
+    "nombre": "Ganímedes",
+    "planeta_id": 5,
+    "diametro_km": 5268,
+    "anio_descubrimiento": 1610,
+    "descripcion": "La luna más grande del Sistema Solar.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/2/21/Ganymede_g1_true-edit1.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Ganímedes_(satélite)"
+  },
+  {
+    "id": 7,
+    "nombre": "Calisto",
+    "planeta_id": 5,
+    "diametro_km": 4821,
+    "anio_descubrimiento": 1610,
+    "descripcion": "Superficie muy antigua y llena de cráteres.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Callisto.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Calisto_(satélite)"
+  },
+  {
+    "id": 8,
+    "nombre": "Amaltea",
+    "planeta_id": 5,
+    "diametro_km": 250,
+    "anio_descubrimiento": 1892,
+    "descripcion": "Una de las lunas interiores de Júpiter.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/6/61/Amalthea_PIA02532.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Amaltea_(satélite)"
+  },
+  {
+    "id": 9,
+    "nombre": "Titán",
+    "planeta_id": 6,
+    "diametro_km": 5150,
+    "anio_descubrimiento": 1655,
+    "descripcion": "Posee atmósfera densa y lagos de metano.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/8/84/Titan_in_true_color.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Titán_(satélite)"
+  },
+  {
+    "id": 10,
+    "nombre": "Encélado",
+    "planeta_id": 6,
+    "diametro_km": 504,
+    "anio_descubrimiento": 1789,
+    "descripcion": "Expulsa géiseres de agua desde un océano subterráneo.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/8/83/PIA17202_-_Approaching_Enceladus.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Encélado_(satélite)"
+  },
+  {
+    "id": 11,
+    "nombre": "Mimas",
+    "planeta_id": 6,
+    "diametro_km": 396,
+    "anio_descubrimiento": 1789,
+    "descripcion": "Conocida por su enorme cráter Herschel.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Mimas_Cassini.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Mimas_(satélite)"
+  },
+  {
+    "id": 12,
+    "nombre": "Tetis",
+    "planeta_id": 6,
+    "diametro_km": 1062,
+    "anio_descubrimiento": 1684,
+    "descripcion": "Luna helada de Saturno.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/6/62/Tethys_saturnmoon.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Tetis_(satélite)"
+  },
+  {
+    "id": 13,
+    "nombre": "Dione",
+    "planeta_id": 6,
+    "diametro_km": 1123,
+    "anio_descubrimiento": 1684,
+    "descripcion": "Luna compuesta principalmente por hielo.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Dione_in_true_color.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Dione_(satélite)"
+  },
+  {
+    "id": 14,
+    "nombre": "Rea",
+    "planeta_id": 6,
+    "diametro_km": 1528,
+    "anio_descubrimiento": 1672,
+    "descripcion": "Segunda luna más grande de Saturno.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/0/02/Rhea_color.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Rea_(satélite)"
+  },
+  {
+    "id": 15,
+    "nombre": "Jápeto",
+    "planeta_id": 6,
+    "diametro_km": 1471,
+    "anio_descubrimiento": 1671,
+    "descripcion": "Famosa por su contraste de colores.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Iapetus_as_seen_by_Cassini.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Jápeto_(satélite)"
+  },
+  {
+    "id": 16,
+    "nombre": "Hiperión",
+    "planeta_id": 6,
+    "diametro_km": 270,
+    "anio_descubrimiento": 1848,
+    "descripcion": "Tiene forma irregular y aspecto esponjoso.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Hyperion_true.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Hiperión_(satélite)"
+  },
+  {
+    "id": 17,
+    "nombre": "Miranda",
+    "planeta_id": 7,
+    "diametro_km": 472,
+    "anio_descubrimiento": 1948,
+    "descripcion": "Posee algunos de los acantilados más altos conocidos.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/5/59/Miranda.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Miranda_(satélite)"
+  },
+  {
+    "id": 18,
+    "nombre": "Ariel",
+    "planeta_id": 7,
+    "diametro_km": 1158,
+    "anio_descubrimiento": 1851,
+    "descripcion": "La más brillante de las grandes lunas de Urano.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/5/59/Ariel_%28moon%29.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Ariel_(satélite)"
+  },
+  {
+    "id": 19,
+    "nombre": "Umbriel",
+    "planeta_id": 7,
+    "diametro_km": 1169,
+    "anio_descubrimiento": 1851,
+    "descripcion": "La más oscura de las grandes lunas de Urano.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Umbrielx2.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Umbriel_(satélite)"
+  },
+  {
+    "id": 20,
+    "nombre": "Titania",
+    "planeta_id": 7,
+    "diametro_km": 1578,
+    "anio_descubrimiento": 1787,
+    "descripcion": "La luna más grande de Urano.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/2/20/Titania_%28moon%29_color.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Titania_(satélite)"
+  },
+  {
+    "id": 21,
+    "nombre": "Oberón",
+    "planeta_id": 7,
+    "diametro_km": 1523,
+    "anio_descubrimiento": 1787,
+    "descripcion": "Segunda luna más grande de Urano.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/3/30/Oberon2.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Oberón_(satélite)"
+  },
+  {
+    "id": 22,
+    "nombre": "Tritón",
+    "planeta_id": 8,
+    "diametro_km": 2707,
+    "anio_descubrimiento": 1846,
+    "descripcion": "La mayor luna de Neptuno y de órbita retrógrada.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Triton_moon_mosaic_Voyager_2.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Tritón_(satélite)"
+  },
+  {
+    "id": 23,
+    "nombre": "Nereida",
+    "planeta_id": 8,
+    "diametro_km": 340,
+    "anio_descubrimiento": 1949,
+    "descripcion": "Posee una órbita muy excéntrica.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Nereid_%28moon%29.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Nereida_(satélite)"
+  },
+  {
+    "id": 24,
+    "nombre": "Proteo",
+    "planeta_id": 8,
+    "diametro_km": 420,
+    "anio_descubrimiento": 1989,
+    "descripcion": "Segunda luna más grande de Neptuno.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/6/68/Proteus_%28moon%29.jpg",
+    "wiki_url": "https://es.wikipedia.org/wiki/Proteo_(satélite)"
+  }
+]

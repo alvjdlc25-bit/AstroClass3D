@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+    font-family: sans-serif;
+    user-select: none;
+}
+
+/* --- PANTALLA DE SELECCIÓN DE MODO (OVERLAY) --- */
+#pantalla-modos {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(11, 15, 25, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s ease;
+}
+.contenedor-modos {
+    background: rgba(30, 41, 59, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(79, 70, 229, 0.5);
+    text-align: center;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.8), 0 0 20px rgba(79, 70, 229, 0.3);
+    max-width: 450px;
+}
+.contenedor-modos h2 { color: #f8fafc; margin-top: 0; font-size: 28px; letter-spacing: 1px; }
+.contenedor-modos p { color: #94a3b8; margin-bottom: 30px; line-height: 1.5; }
+.btn-modo {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    margin: 14px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.btn-modo:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+.btn-explorar { background: linear-gradient(135deg, #0284c7, #2563eb); }
+.btn-trivia { background: linear-gradient(135deg, #4f46e5, #7c3aed); }
+
+/* --- INTERFAZ DEL TRIVIAL --- */
+#contenedor-trivia {
+    position: absolute;
+    top: 25px; left: 50%; transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.85);
+    color: white;
+    padding: 18px 35px;
+    border-radius: 16px;
+    border: 1px solid rgba(79, 70, 229, 0.5);
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    z-index: 10;
+    max-width: 550px;
+    backdrop-filter: blur(8px);
+    display: none;
+}
+#pregunta { font-size: 19px; font-weight: 600; margin: 12px 0; color: #38bdf8; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+#puntuacion { font-size: 14px; color: #cbd5e1; font-weight: 500; letter-spacing: 1px; }
+#feedback { font-size: 16px; font-weight: bold; margin-top: 10px; min-height: 22px; }
+.correcto { color: #4ade80; text-shadow: 0 0 10px rgba(74, 222, 128, 0.5); }
+.incorrecto { color: #f87171; text-shadow: 0 0 10px rgba(248, 113, 113, 0.5); }
+
+/* --- PANEL DE INFORMACIÓN EXPLORACIÓN --- */
+#panel-informacion {
+    position: absolute;
+    top: 25px; right: 25px;
+    background: rgba(15, 23, 42, 0.85);
+    color: #e2e8f0;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    width: 260px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    backdrop-filter: blur(8px);
+    z-index: 10;
+    display: none;
+}
+
+#panel-informacion h3 {
+    color: #38bdf8; margin-top: 0; font-size: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 15px;
+}
+#panel-informacion p { margin: 10px 0; font-size: 15px; }
+#panel-informacion strong { color: #94a3b8; }
+
+#ayuda-explorar {
+    position: absolute;
+    bottom: 30px; width: 100%; text-align: center;
+    color: rgba(255,255,255,0.7); pointer-events: none; font-size: 15px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8); z-index: 5;
+    display: none;
+    letter-spacing: 1px;
+}
+
+#btn-volver {
+    position: absolute;
+    top: 25px; left: 25px;
+    background: rgba(30, 41, 59, 0.8); color: white;
+    padding: 12px 20px; border-radius: 8px;
+    text-decoration: none; font-weight: 600; font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.1); z-index: 10;
+    backdrop-filter: blur(5px);
+    transition: all 0.2s;
+}
+#btn-volver:hover { background: rgba(51, 65, 85, 0.9); border-color: rgba(255,255,255,0.3); }
