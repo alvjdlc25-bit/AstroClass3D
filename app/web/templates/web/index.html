@@ -22,14 +22,14 @@
         <label for="planeta" style="font-weight: 600; font-size: 1.1rem;">Navegar hacia un mundo:</label>
         <select id="planeta">
             <option value="" selected disabled>-- Elige un destino --</option>
-            <option value="Mercurio">Mercurio</option>
-            <option value="Venus">Venus</option>
-            <option value="Tierra">Tierra</option>
-            <option value="Marte">Marte</option>
-            <option value="Júpiter">Júpiter</option>
-            <option value="Saturno">Saturno</option>
-            <option value="Urano">Urano</option>
-            <option value="Neptuno">Neptuno</option>
+            <option value="1">Mercurio</option>
+            <option value="2">Venus</option>
+            <option value="3">Tierra</option>
+            <option value="4">Marte</option>
+            <option value="5">Júpiter</option>
+            <option value="6">Saturno</option>
+            <option value="7">Urano</option>
+            <option value="8">Neptuno</option>
         </select>
 
         <div id="error" class="error"></div>
@@ -88,14 +88,14 @@
 <script>
 // Base de datos local complementaria para inyectar dinamismo didáctico
 const datosDidacticosComplementarios = {
-    'Mercurio': { curiosidad: "¡Un año en Mercurio dura solo 88 días, pero un solo día completo (de amanecer a amanecer) dura 176 días terrestres debido a su lentísima rotación!", gravedadTierra: 0.38, esGas: false },
-    'Venus': { curiosidad: "A pesar de no ser el planeta más cercano al Sol, es el más caliente del sistema debido a un efecto invernadero descontrolado. ¡Su atmósfera aplastaría un submarino!", gravedadTierra: 0.90, esGas: false },
-    'Tierra': { curiosidad: "Es el único mundo conocido que alberga vida y agua líquida en su superficie. Nuestro escudo magnético nos protege de la radiación solar destructiva.", gravedadTierra: 1.0, esGas: false },
-    'Marte': { curiosidad: "Alberga el 'Monte Olimpo', el volcán más grande del Sistema Solar. Es tres veces más alto que el Monte Everest.", gravedadTierra: 0.38, esGas: false },
-    'Júpiter': { curiosidad: "Su famosa 'Gran Mancha Roja' es una tormenta gigante más grande que la Tierra entera que lleva rugiendo al menos 300 años.", gravedadTierra: 2.53, esGas: true },
-    'Saturno': { curiosidad: "Sus espectaculares anillos están hechos de miles de millones de pedazos de hielo y roca. Además, es tan ligero que si tuvieras un océano gigante, ¡Saturno flotaría en él!", gravedadTierra: 1.06, esGas: true },
-    'Urano': { curiosidad: "Este gigante de hielo gira completamente de lado. Su eje de rotación está inclinado casi 98 grados, probablemente debido a un antiguo choque planetario.", gravedadTierra: 0.89, esGas: true },
-    'Neptuno': { curiosidad: "Es el lugar más ventoso de nuestro sistema. Sus corrientes de aire congelado superan los 2,100 km/h, más rápido que la velocidad del sonido de un jet de combate.", gravedadTierra: 1.14, esGas: true }
+    '1': { curiosidad: "¡Un año en Mercurio dura solo 88 días, pero un solo día completo (de amanecer a amanecer) dura 176 días terrestres debido a su lentísima rotación!", gravedadTierra: 0.38, esGas: false },
+    '2': { curiosidad: "A pesar de no ser el planeta más cercano al Sol, es el más caliente del sistema debido a un efecto invernadero descontrolado. ¡Su atmósfera aplastaría un submarino!", gravedadTierra: 0.90, esGas: false },
+    '3': { curiosidad: "Es el único mundo conocido que alberga vida y agua líquida en su superficie. Nuestro escudo magnético nos protege de la radiación solar destructiva.", gravedadTierra: 1.0, esGas: false },
+    '4': { curiosidad: "Alberga el 'Monte Olimpo', el volcán más grande del Sistema Solar. Es tres veces más alto que el Monte Everest.", gravedadTierra: 0.38, esGas: false },
+    '5': { curiosidad: "Su famosa 'Gran Mancha Roja' es una tormenta gigante más grande que la Tierra entera que lleva rugiendo al menos 300 años.", gravedadTierra: 2.53, esGas: true },
+    '6': { curiosidad: "Sus espectaculares anillos están hechos de miles de millones de pedazos de hielo y roca. Además, es tan ligero que si tuvieras un océano gigante, ¡Saturno flotaría en él!", gravedadTierra: 1.06, esGas: true },
+    '7': { curiosidad: "Este gigante de hielo gira completamente de lado. Su eje de rotación está inclinado casi 98 grados, probablemente debido a un antiguo choque planetario.", gravedadTierra: 0.89, esGas: true },
+    '8': { curiosidad: "Es el lugar más ventoso de nuestro sistema. Sus corrientes de aire congelado superan los 2,100 km/h, más rápido que la velocidad del sonido de un jet de combate.", gravedadTierra: 1.14, esGas: true }
 };
 
 document.getElementById("planeta").addEventListener("change", async function () {
@@ -124,7 +124,7 @@ document.getElementById("planeta").addEventListener("change", async function () 
         document.getElementById("gravedad").textContent = `${data.gravedad} m/s²`;
         document.getElementById("densidad").textContent = `${data.densidad} g/cm³`;
         document.getElementById("masa").textContent = data.masa;
-        document.getElementById("lunas").textContent = data.lunas === 0 ? "Ninguna luna" : `${data.lunas} lunas registradas`;
+        document.getElementById("lunas").textContent = data.total_lunas === 0 ? "Ninguna luna" : `${data.total_lunas} lunas registradas`;
         document.getElementById("distancia").textContent = `${data.distancia_sol_mill_km} Millones de km`;
 
         // --- boleanos ---

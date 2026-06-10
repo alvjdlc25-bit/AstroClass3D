@@ -14,5 +14,5 @@ urlpatterns = [
     path('sync/', views.sincronizar_planetas, name='sync_planetas'),
 
     # 🔌 API JSON para consultar un planeta por nombre
-    path('api/planeta/<str:nombre>/', views.planeta_api, name='planeta_api'),
+    path('api/planeta/<int:id>/', views.planeta_api, name='planeta_api'),
 ]

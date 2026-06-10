@@ -4,11 +4,15 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 /* 
    Parametros iniciales
 */
+console.log("CAMBIO NUEVO 123");
 
 let modoActual = 'seleccion';
 let preguntaActual = null;
 let puntos = 0;
 let racha = 0;
+let preguntasRespondidas = 0;
+const LIMITE_PREGUNTAS = 5;
+
 
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
@@ -22,38 +26,73 @@ const planetas = [];
 const preguntasTrivia = [
     {
         texto: "Haz clic en el planeta que habitamos nosotros (El planeta azul).",
-        respuestaCorrecta: "earth"
+        respuestaCorrecta: "3"
     },
     {
         texto: "Haz clic en el planeta rojo, famoso por sus tormentas de polvo.",
-        respuestaCorrecta: "mars"
+        respuestaCorrecta: "4"
     },
     {
         texto: "Busca y clica en el gigante gaseoso, el planeta más grande de todos.",
-        respuestaCorrecta: "jupiter"
+        respuestaCorrecta: "5"
     },
     {
         texto: "Haz clic en el planeta conocido por sus espectaculares y vistosos anillos.",
-        respuestaCorrecta: "saturn"
+        respuestaCorrecta: "6"
     },
     {
         texto: "Haz clic en el planeta más cercano al Sol.",
-        respuestaCorrecta: "mercury"
+        respuestaCorrecta: "1"
     },
     {
         texto: "Haz clic en el planeta más brillante del cielo.",
-        respuestaCorrecta: "venus"
+        respuestaCorrecta: "2"
     },
     {
         texto: "Haz clic en el gigante de hielo que rota de lado.",
-        respuestaCorrecta: "uranus"
+        respuestaCorrecta: "7"
     },
     {
         texto: "Haz clic en el planeta más alejado del Sol.",
-        respuestaCorrecta: "neptune"
+        respuestaCorrecta: "8"
+    },
+    
+    {
+        texto: "Haz clic en el planeta que tarda casi 30 años terrestres en dar una sola vuelta al Sol.",
+        respuestaCorrecta: "6" 
+    },
+    {
+        texto: "Busca y clica en el planeta que es prácticamente del mismo tamaño que la Tierra (su planeta gemelo).",
+        respuestaCorrecta: "2" 
+    },
+    {
+        texto: "Haz clic en el planeta que tiene más del doble de la masa que todos los demás planetas juntos.",
+        respuestaCorrecta: "5" 
+    },
+    {
+        texto: "Haz clic en el planeta que experimenta las variaciones de temperatura más extremas (pasa de 430°C de día a -180°C de noche).",
+        respuestaCorrecta: "1" 
+    },
+    {
+        texto: "Clica en el planeta que destaca por su intenso color azul debido al metano de su atmósfera y que está después de Urano.",
+        respuestaCorrecta: "8" 
+    },
+    {
+        texto: "Haz clic en el planeta que tiene dos pequeñas lunas llamadas Fobos y Deimos.",
+        respuestaCorrecta: "4" 
+    },
+    {
+        texto: "Haz clic en el planeta helado que cuenta con un sutil sistema de anillos verticales y 27 lunas.",
+        respuestaCorrecta: "7" 
+    },
+    {
+        texto: "Busca el planeta cuya superficie está cubierta en un 71% por agua líquida.",
+        respuestaCorrecta: "3" 
     }
-];
 
+
+];
+let preguntasDisponibles = [...preguntasTrivia];
 /*
    ESCENA THREE.JS
 */
@@ -173,14 +212,14 @@ scene.add(BrilloSol);
 
 const planetData = [
 
-    {name: "Mercurio",id: "mercury",size: 1.0,dist: 25,ecc: 0.35,speed: 0.015,angle: 2.1,tex: "mercurymap.jpg",bump: "mercurybump.jpg"},
-    {name: "Venus",id: "venus",size: 1.8,dist: 38,ecc: 0.12,speed: 0.011,angle: 5.4,tex: "venusmap.jpg",bump: "venusbump.jpg"},
-    {name: "Tierra",id: "earth",size: 2,dist: 52,ecc: 0.25,speed: 0.009,angle: 1.2,tex: "earthmap1k.jpg",bump: "earthbump1k.jpg",clouds: "earthcloudmap.jpg"},
-    {name: "Marte",id: "mars",size: 1.4,dist: 70,ecc: 0.30,speed: 0.007,angle: 3.9,tex: "marsmap1k.jpg",bump: "marsbump1k.jpg"},
-    {name: "Júpiter",id: "jupiter",size: 5.2,dist: 98,ecc: 0.22,speed: 0.004,angle: 0.5,tex: "jupitermap.jpg"},
-    {name: "Saturno",id: "saturn",size: 4.2,dist: 125,ecc: 0.24,speed: 0.003,angle: 4.7,tex: "saturnmap.jpg",ring: "saturnringcolor.jpg"},
-    {name: "Urano",id: "uranus",size: 2.8,dist: 155,ecc: 0.20,speed: 0.002,angle: 2.8,tex: "uranusmap.jpg",ring: "uranusringcolour.jpg"},
-    {name: "Neptuno",id: "neptune",size: 2.6,dist: 185,ecc: 0.18,speed: 0.001,angle: 1.9,tex: "neptunemap.jpg"}
+    {name: "Mercurio",id: "1",size: 1.0,dist: 25,ecc: 0.35,speed: 0.015,angle: 2.1,tex: "mercurymap.jpg",bump: "mercurybump.jpg"},
+    {name: "Venus",id: "2",size: 1.8,dist: 38,ecc: 0.12,speed: 0.011,angle: 5.4,tex: "venusmap.jpg",bump: "venusbump.jpg"},
+    {name: "Tierra",id: "3",size: 2,dist: 52,ecc: 0.25,speed: 0.009,angle: 1.2,tex: "earthmap1k.jpg",bump: "earthbump1k.jpg",clouds: "earthcloudmap.jpg"},
+    {name: "Marte",id: "4",size: 1.4,dist: 70,ecc: 0.30,speed: 0.007,angle: 3.9,tex: "marsmap1k.jpg",bump: "marsbump1k.jpg"},
+    {name: "Júpiter",id: "5",size: 5.2,dist: 98,ecc: 0.22,speed: 0.004,angle: 0.5,tex: "jupitermap.jpg"},
+    {name: "Saturno",id: "6",size: 4.2,dist: 125,ecc: 0.24,speed: 0.003,angle: 4.7,tex: "saturnmap.jpg",ring: "saturnringcolor.jpg"},
+    {name: "Urano",id: "7",size: 2.8,dist: 155,ecc: 0.20,speed: 0.002,angle: 2.8,tex: "uranusmap.jpg",ring: "uranusringcolour.jpg"},
+    {name: "Neptuno",id: "8",size: 2.6,dist: 185,ecc: 0.18,speed: 0.001,angle: 1.9,tex: "neptunemap.jpg"}
 
 ];
 /* ==========================================
@@ -245,7 +284,7 @@ function crearAnillo(tamañoPlaneta, archivoTextura) {
 
 function crearNubes(tamaño, archivoTextura) {
 
-    return new THREE.Mesh(
+    const nubes = new THREE.Mesh(
         new THREE.SphereGeometry(tamaño * 1.015, 64, 64),
         new THREE.MeshStandardMaterial({
             map: textura(archivoTextura),
@@ -255,6 +294,11 @@ function crearNubes(tamaño, archivoTextura) {
             depthWrite: false
         })
     );
+
+    //  IMPORTANTE: evitar clicks en nubes
+    nubes.raycast = () => {};
+
+    return nubes;
 }
 
 /* ==========================================
@@ -279,7 +323,10 @@ function crearPlaneta(datos) {
     );
 
     planeta.name = datos.id;
-
+    planeta.userData = {
+        id: datos.id,
+        nombre: datos.name
+    };
     planeta.castShadow = true;
     planeta.receiveShadow = true;
 
@@ -310,7 +357,8 @@ function crearPlaneta(datos) {
         angulo: datos.angle,
         velocidad: datos.speed,
         distancia: datos.dist,
-        excentricidad: datos.ecc
+        excentricidad: datos.ecc,
+        id: datos.id
     });
 }
 /* ==========================================
@@ -374,8 +422,13 @@ window.cambiarModo = function (modo) {
 
     modoActual = modo;
 
+    // OCULTAR TODO primero 
     document.getElementById('pantalla-modos').style.display = 'none';
+    document.getElementById('ayuda-explorar').style.display = 'none';
+    document.getElementById('contenedor-trivia').style.display = 'none';
+    document.getElementById('panel-informacion').style.display = 'none';
 
+    // ahora se activa lo adecuado
     if (modo === 'explorar') {
         document.getElementById('ayuda-explorar').style.display = 'block';
     }
@@ -385,7 +438,6 @@ window.cambiarModo = function (modo) {
         siguientePregunta();
     }
 };
-
 function siguientePregunta() {
 
     let feedback = document.getElementById('feedback');
@@ -395,9 +447,20 @@ function siguientePregunta() {
         feedback.className = "";
     }
 
-    preguntaActual = preguntasTrivia[
-        Math.floor(Math.random() * preguntasTrivia.length)
-    ];
+    if (preguntasRespondidas >= LIMITE_PREGUNTAS || preguntasDisponibles.length === 0) {
+
+        document.getElementById('pregunta').textContent = "Has completado el trivial!";
+        document.getElementById('feedback').textContent = `Puntuación final: ${puntos}`;
+
+        const btn = document.getElementById('btn-reiniciar-trivia');
+        btn.style.display = "block";
+
+        return;
+    }
+
+    // no repetir
+    const index = Math.floor(Math.random() * preguntasDisponibles.length);
+    preguntaActual = preguntasDisponibles.splice(index, 1)[0];
 
     document.getElementById('pregunta').textContent = preguntaActual.texto;
 }
@@ -409,7 +472,7 @@ window.addEventListener('click', onClick);
 
 function onClick(event) {
 
-    if (modoActual === 'seleccion') return;
+    
 
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -424,6 +487,10 @@ function onClick(event) {
 
     const obj = hits[0].object;
 
+    console.log("OBJ:", obj);
+    console.log("USERDATA:", obj.userData);
+    console.log("ID:", obj.userData?.id);
+
     // SOL
     if (obj.name === "Sol") {
         document.getElementById('info-nombre').textContent = "Sol";
@@ -432,36 +499,47 @@ function onClick(event) {
     }
 
     // EXPLORAR
-    if (modoActual === 'explorar') {
+   // EXPLORAR (solo si estás en modo explorar)
+if (modoActual === 'explorar') {
 
-        fetch(`/api/planeta/${obj.name}/`)
-            .then(r => r.json())
-            .then(data => {
+    fetch(`/api/planeta/${obj.userData.id}/`)
+        .then(r => {
+            if (!r.ok) throw new Error("Error en la API");
+            return r.json();
+        })
+        .then(data => {
 
-                document.getElementById('info-nombre').textContent = data.nombre;
-                document.getElementById('info-gravedad').textContent = data.gravedad;
-                document.getElementById('info-densidad').textContent = data.densidad;
-                document.getElementById('info-masa').textContent = data.masa;
-                document.getElementById('info-lunas').textContent = data.total_lunas;
+            document.getElementById('info-nombre').textContent = data.nombre;
+            document.getElementById('info-gravedad').textContent = data.gravedad;
+            document.getElementById('info-densidad').textContent = data.densidad;
+            document.getElementById('info-masa').textContent = data.masa;
+            document.getElementById('info-lunas').textContent = data.total_lunas;
 
-                document.getElementById('panel-informacion').style.display = 'block';
-            });
+            document.getElementById('panel-informacion').style.display = 'block';
+        })
+        .catch(err => {
+            console.error("Error cargando planeta:", err);
+        });
 
-        return;
-    }
+        } else {
+            // 🔒 en trivia NO mostrar panel
+            document.getElementById('panel-informacion').style.display = 'none';
+        }
 
     // TRIVIA
     if (modoActual === 'trivia' && preguntaActual) {
 
         const feedback = document.getElementById('feedback');
 
-        if (obj.name === preguntaActual.respuestaCorrecta) {
+        if (obj.userData.id === preguntaActual.respuestaCorrecta) {
 
             puntos += 10;
             racha++;
 
             feedback.textContent = "Correcto";
             feedback.className = "correcto";
+
+            preguntasRespondidas++;
 
             preguntaActual = null;
             setTimeout(siguientePregunta, 2000);
@@ -472,6 +550,7 @@ function onClick(event) {
 
             feedback.textContent = "Incorrecto";
             feedback.className = "incorrecto";
+            preguntasRespondidas++;
         }
 
         document.getElementById('puntos-actuales').textContent = puntos;
@@ -529,3 +608,24 @@ function animar() {
 }
 
 animar();
+
+function reiniciarTrivia() {
+
+    puntos = 0;
+    racha = 0;
+    preguntasRespondidas = 0;
+
+    preguntasDisponibles = [...preguntasTrivia];
+
+    preguntaActual = null;
+
+    document.getElementById('puntos-actuales').textContent = 0;
+    document.getElementById('racha-actual').textContent = 0;
+
+    document.getElementById('feedback').textContent = "";
+    document.getElementById('btn-reiniciar-trivia').style.display = "none";
+
+    siguientePregunta();
+}
+document.getElementById('btn-reiniciar-trivia')
+    .addEventListener('click', reiniciarTrivia);

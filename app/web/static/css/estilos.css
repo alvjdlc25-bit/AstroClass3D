@@ -112,3 +112,24 @@ body {
     transition: all 0.2s;
 }
 #btn-volver:hover { background: rgba(51, 65, 85, 0.9); border-color: rgba(255,255,255,0.3); }
+
+
+
+#btn-reiniciar-trivia {
+    padding: 10px 18px;
+    margin-top: 15px;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    display: block;
+    margin: 15px auto 0 auto;
+}
+
+#btn-reiniciar-trivia:hover {
+    background-color: #0f6fd1;
+    transform: scale(1.05);
+}

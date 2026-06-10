@@ -4,16 +4,21 @@ from .models import Planeta
 from django.http import JsonResponse
 
 
-def planeta_api(request, nombre):
+from django.http import JsonResponse
+from .models import Planeta
+
+def planeta_api(request, id):
 
     try:
-        planeta = Planeta.objects.get(nombre__iexact=nombre)
+        planeta = Planeta.objects.get(id=id)
 
         return JsonResponse({
+            "id": planeta.id,
             "nombre": planeta.nombre,
             "gravedad": planeta.gravedad,
             "densidad": planeta.densidad,
             "masa": planeta.masa,
+            "total_lunas": planeta.lunas.count(),
             "lunas": list(planeta.lunas.values("nombre", "diametro_km")),
             "distancia_sol_mill_km": planeta.distancia_sol_mill_km,
             "descripcion": planeta.descripcion,
@@ -23,8 +28,9 @@ def planeta_api(request, nombre):
     except Planeta.DoesNotExist:
         return JsonResponse({
             "error": "Planeta no encontrado",
-            "debug": nombre
+            "debug": id
         }, status=404)
+    
     
 def hola(request):
     planetas = Planeta.objects.all()

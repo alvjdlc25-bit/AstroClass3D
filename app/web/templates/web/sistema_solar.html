@@ -26,8 +26,8 @@
         <div class="contenedor-modos">
             <h2>Centro de Mando Espacial</h2>
             <p>Selecciona cómo deseas interactuar con el Sistema Solar 3D:</p>
-            <button class="btn-modo btn-explorar" onclick="cambiarModo('explorar')">🔭 Modo Observación e Info</button>
-            <button class="btn-modo btn-trivia" onclick="cambiarModo('trivia')">🎮 Modo Trivial Espacial</button>
+            <button class="btn-modo btn-explorar" onclick="cambiarModo('explorar')">Modo Observación e Info</button>
+            <button class="btn-modo btn-trivia" onclick="cambiarModo('trivia')">Modo Trivial Espacial</button>
         </div>
     </div>
 
@@ -55,6 +55,9 @@
         <div id="puntuacion">PUNTOS: <span id="puntos-actuales" style="color: #4ade80;">0</span> &nbsp;|&nbsp; RACHA: <span id="racha-actual" style="color: #facc15;">0</span></div>
         <div id="pregunta">Cargando datos de la misión...</div>
         <div id="feedback"></div>
+        <button id="btn-reiniciar-trivia" style="display:none;">
+        Volver a empezar
+        </button>
     </div>
 
     <!-- Enlace al archivo JavaScript principal como módulo -->
