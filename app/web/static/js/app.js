@@ -11,7 +11,7 @@ let preguntaActual = null;
 let puntos = 0;
 let racha = 0;
 let preguntasRespondidas = 0;
-const LIMITE_PREGUNTAS = 5;
+const LIMITE_PREGUNTAS = 3;
 
 
 const raycaster = new THREE.Raycaster();
@@ -527,35 +527,35 @@ if (modoActual === 'explorar') {
         }
 
     // TRIVIA
-    if (modoActual === 'trivia' && preguntaActual) {
+    if (obj.userData.id === preguntaActual.respuestaCorrecta) {
 
-        const feedback = document.getElementById('feedback');
+    racha++;
 
-        if (obj.userData.id === preguntaActual.respuestaCorrecta) {
+    // 10 puntos base + bonus por racha
+    const puntosGanados = 2.5 * racha;
 
-            puntos += 10;
-            racha++;
+    puntos += puntosGanados;
 
-            feedback.textContent = "Correcto";
-            feedback.className = "correcto";
+    feedback.textContent = `Correcto (+${puntosGanados} puntos)`;
+    feedback.className = "correcto";
 
-            preguntasRespondidas++;
+    preguntasRespondidas++;
 
-            preguntaActual = null;
-            setTimeout(siguientePregunta, 2000);
+    preguntaActual = null;
+    setTimeout(siguientePregunta, 2000);
 
-        } else {
+} else {
 
-            racha = 0;
+    racha = 0;
 
-            feedback.textContent = "Incorrecto";
-            feedback.className = "incorrecto";
-            preguntasRespondidas++;
-        }
+    feedback.textContent = "Incorrecto";
+    feedback.className = "incorrecto";
 
-        document.getElementById('puntos-actuales').textContent = puntos;
-        document.getElementById('racha-actual').textContent = racha;
-    }
+    preguntasRespondidas++;
+}
+
+document.getElementById('puntos-actuales').textContent = puntos;
+document.getElementById('racha-actual').textContent = racha;
 }
 /* 
    RESIZE youtube
